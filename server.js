@@ -164,7 +164,8 @@ app.post('/api/contact', async (req, res) => {
 
     } catch (error) {
         console.error("Error processing contact form:", error);
-        return res.status(500).json({ success: false, message: "Internal server error. Could not send message." });
+        // Expose error message for debugging
+        return res.status(500).json({ success: false, message: "Internal server error: " + error.message });
     }
 });
 
